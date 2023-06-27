@@ -1,0 +1,66 @@
+package RailwayMiniProject;
+
+import java.util.Scanner;
+
+import StudentMiniproject.StudentApp;
+
+public class PassengerMain {
+
+	static Scanner sc=new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		System.out.println("*********************************************************************************************");
+		System.out.println("***************************** Railway Ticket Booking System *********************************");
+		System.out.println("**********************************************************************************************");
+		String ch;
+		PassengerDetails details=new PassengerDetails();
+		do
+		{
+		
+		System.out.println("\t\t 1)View Passenger Information\r\n"
+				+ "\t\t 2)Insert Passenger  info by passenger  id.\r\n"
+				+ "\t\t 3)view all Passenger information By Id.\r\n"
+				+ "\t\t 4)Update Passenger  information by id.\r\n"
+				+ "\t\t 5)delete Passenger  information by id.\r\n"
+				+ "\t\t 6)delete all Passenger  information.");
+		System.out.println("====================================================================");
+		System.out.println("Enter your choice:");
+		int choice=sc.nextInt();
+		
+
+		switch(choice)
+		{
+		
+		case 1: details.viewAllPassengerInfo();
+				break;
+		case 2:	details.addPassengerInfo();
+		break;
+		case 3:	details.viewPassengerInfoById();
+		break;
+		case 4:	details.updateByPassengerId();
+		break;
+		case 5:	details.deleteByPassengerId();
+		break;
+		case 6:	details.deleteAllPassengerInfo();
+		break;
+	    default:System.out.println("Wrong choice!!"); 		   
+		
+	    
+	    
+		}
+		
+		System.out.println("Do you want to continue? (Y-Yes / N-No)");
+		 ch=sc.next();
+		}
+		while(ch.equals("Y")||ch.equals("y"));
+		System.out.println("====================================================================");
+
+		System.out.println("Bye....");
+	
+		System.out.println("====================================================================");
+
+
+	}
+}
+

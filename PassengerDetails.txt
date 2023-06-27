@@ -1,0 +1,174 @@
+package RailwayMiniProject;
+
+import java.util.ArrayList;
+
+import java.util.Scanner;
+
+
+public class PassengerDetails {
+
+	static Scanner sc=new Scanner(System.in);
+	
+	ArrayList<Passenger> passengerList=new ArrayList<Passenger>();
+	
+	PassengerDetails()
+	{
+		passengerList.add(new Passenger(1001,"Hari","Coimbatore","Chennai",99999));
+		passengerList.add(new Passenger(1002,"Ravi","Madurai","Tiruppur",88888));
+		passengerList.add(new Passenger(1003,"Raj","Trivandrum","Udumalpet",77777));
+		passengerList.add(new Passenger(1004,"Rani","Coimbatore","Tirunelveli",66666));	
+}
+	public void viewAllPassengerInfo()
+	{
+		System.out.println("==================================================================================================");
+		
+		if (passengerList.size()==0)
+		{
+			System.out.println("No record found!!");
+		}
+		for (Passenger p:passengerList)
+		{
+			System.out.println("\t Passenger ID:"+p.getPassengerId()+"\t Passenger Name:"+p.getPassengerName()+"\t Passenger Departure:"+p.getPassengerDeparture()+"\t Passenger Arrival:"+p.getPassengerArrival()+"\t Contact:"+p.getPassengerContact());
+			
+		}
+		System.out.println("==================================================================================================");
+	}
+	public void addPassengerInfo() 
+	{
+		System.out.println("Enter Passenger Id: ");
+		int passengerId=sc.nextInt();
+		System.out.println("Enter Passenger Name: ");
+		String passengerName=sc.next();
+		System.out.println("Enter Passenger Departure: ");
+		String passengerDeparture=sc.next();
+		System.out.println("Enter Passenger Arrival: ");
+		String passengerArrival=sc.next();
+		System.out.println("Enter Passenger Contact: ");
+		long passengerContact=sc.nextLong();
+		
+		Passenger p=new Passenger(passengerId, passengerName, passengerDeparture, passengerArrival, passengerContact);
+		
+		passengerList.add(p);
+	}
+	public void viewPassengerInfoById() 
+	{
+		System.out.println("Enter passenger id:");
+		int passengerId=sc.nextInt();//101
+	    int flag=0;
+		System.out.println("==================================================================================================");
+
+		for(Passenger p:passengerList)
+		{
+			
+			if(passengerId==p.getPassengerId())//101==101
+			{   flag=1;
+			System.out.println(" Id:"+p.getPassengerId()+"\t Passenger Name:"+p.getPassengerName()+"\t "
+						+ "Departure:"+p.getPassengerDeparture()+"\t "
+								+ "Arrival:"+p.getPassengerArrival()+
+								"\t Contact:"+p.getPassengerContact());
+			}
+		}
+		
+		if(flag==0)
+			System.out.println("Passenger Id does not exist!!");
+		System.out.println("==================================================================================================");
+	
+	}
+	public void updateByPassengerId()
+	{
+		System.out.println("Enter passenger id:");
+		int passengerId=sc.nextInt();
+	    int flag=0,index = 0;
+	    Passenger p=null;
+	    for(Passenger passenger:passengerList)//101
+	    {
+	    	if(passenger.getPassengerId()==passengerId)//101==101
+	    	{
+	    		flag=1;
+	    		index=passengerList.indexOf(passenger);//101
+	    		System.out.println(index);
+	    		p=passenger;
+	    		break;
+	    	}
+	    }
+	    
+	    if(flag==1)
+	    {
+	    	System.out.println("Enter passenger Name: ");
+			String passengerName=sc.next();
+			System.out.println("Enter passenger Departure: ");
+			String passengerDeparture=sc.next();
+			System.out.println("Enter passenger Arrival: ");
+			String passengerArrival=sc.next();
+			System.out.println("Enter passenger Contact: ");
+			long passengerContact=sc.nextLong();
+			
+			p.setPassengerName(passengerName);
+			p.setPassengerDeparture(passengerDeparture);
+			p.setPassengerArrival(passengerArrival);
+			p.setPassengerContact(passengerContact);
+			
+			passengerList.set(index,p);
+			System.out.println("==================================================================================================");
+
+			System.out.println("passenger Details updated!!");
+	    }
+	    else
+	    {
+	    	System.out.println("Id does not exist!!");
+	    }
+		System.out.println("==================================================================================================");
+
+	}
+	public void deleteAllPassengerInfo()
+	{
+		System.out.println("==================================================================================================");
+
+		if(passengerList.size()>0)
+		{
+			passengerList.clear();
+			System.out.println("All records deleted successfully!!");
+		}
+		else
+		{
+			System.out.println("No record available!!");
+		}
+		System.out.println("==================================================================================================");
+
+	}
+	public void deleteByPassengerId() 
+	{
+		System.out.println("Enter passenger id :");
+		int passengerId=sc.nextInt();//101
+		int index=0,flag=0;
+		Passenger p=null;
+		
+		for(Passenger passenger:passengerList)
+		{
+			if(passengerId==passenger.getPassengerId())//101
+			{
+				flag=1;
+				index=passengerList.indexOf(passenger);
+				p=passenger;
+				System.out.println(index);
+				break;
+			}
+		}
+		System.out.println("==================================================================================================");
+
+		if(flag==0)
+		{
+			System.out.println("passenger Id does not exist!!");
+		}
+		else
+		{
+			passengerList.remove(p);
+			System.out.println("passenger record deleted successfully!!");
+		}
+		
+		System.out.println("==================================================================================================");
+
+	}
+
+	
+}

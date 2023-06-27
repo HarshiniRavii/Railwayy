@@ -1,0 +1,76 @@
+package RailwayMiniProject;
+
+public class Passenger {
+
+	private int passengerId;
+	private String passengerName;
+	private String passengerDeparture;
+	private String passengerArrival;
+	private long passengerContact;
+	
+	
+	public Passenger() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Passenger(int passengerId, String passengerName, String passengerDeparture, String passengerArrival,
+			long passengerContact) {
+		super();
+		this.passengerId = passengerId;
+		this.passengerName = passengerName;
+		this.passengerDeparture = passengerDeparture;
+		this.passengerArrival = passengerArrival;
+		this.passengerContact = passengerContact;
+	}
+
+	public int getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(int passengerId) {
+		this.passengerId = passengerId;
+	}
+
+	public String getPassengerName() {
+		return passengerName;
+	}
+
+	public void setPassengerName(String passengerName) {
+		this.passengerName = passengerName;
+	}
+
+	public String getPassengerDeparture() {
+		return passengerDeparture;
+	}
+
+	public void setPassengerDeparture(String passengerDeparture) {
+		this.passengerDeparture = passengerDeparture;
+	}
+
+	public String getPassengerArrival() {
+		return passengerArrival;
+	}
+
+	public void setPassengerArrival(String passengerArrival) {
+		this.passengerArrival = passengerArrival;
+	}
+
+	public long getPassengerContact() {
+		return passengerContact;
+	}
+
+	public void setPassengerContact(long passengerContact) {
+		this.passengerContact = passengerContact;
+	}
+
+	@Override
+	public String toString() {
+		return "Passenger [passengerId=" + passengerId + ", passengerName=" + passengerName + ", passengerDeparture="
+				+ passengerDeparture + ", passengerArrival=" + passengerArrival + ", passengerContact=" + passengerContact
+				+ "]";
+	}
+	
+	
+	
+}
